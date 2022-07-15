@@ -10,7 +10,6 @@
 cd  "$1" 
 
 cat > RevInfo.var << EOF
-(* RevInfo.var 2.0.0 *)
 VAR CONSTANT
 	revision : STRING[80] := '$(git describe --always --tags)';
 	revisionDate : STRING[80] := '$(git show -s --date=default --pretty=format:%ci)';

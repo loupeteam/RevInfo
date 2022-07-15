@@ -22,7 +22,7 @@
     "physical": {
       "cpu": [
         {
-          "source": "RevInfoProg",
+          "source": "RevInfo",
           "destination": "TC8"
         }
       ]
