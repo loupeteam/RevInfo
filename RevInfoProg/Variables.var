@@ -1,0 +1,9 @@
+VAR RETAIN
+	download : BOOL;
+END_VAR
+VAR
+	dataOK : BOOL;
+	i : UINT := 0;
+	reboot : BOOL;
+	tempString : STRING[160];
+END_VAR
