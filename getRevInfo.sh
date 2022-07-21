@@ -1,15 +1,12 @@
 #!/bin/sh
 # The following line should be put into the pre-build step of any configuration that should run this script
-# "$(AS_PROJECT_PATH)\Logical\Infrastructure\RevInfo\getRevInfo.sh" "$(AS_PROJECT_PATH)\Logical\Infrastructure\RevInfo" "${AS_CONFIGURATION}" "${AS_USER_NAME}"
+# "$(AS_PROJECT_PATH)\Logical\Documentation\getRevInfo.sh"
 # This script will update the revision and build information
 
-# $1 = Path to script
-# $2 = Configuration being built
-# $3 = User who built configuration
-
-cd  "$1" 
+cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 
 cat > RevInfo.var << EOF
+(* RevInfo.var 2.2.0 *)
 VAR CONSTANT
 	revision : STRING[80] := '$(git describe --always --tags)';
 	revisionDate : STRING[80] := '$(git show -s --date=default --pretty=format:%ci)';
@@ -17,8 +14,8 @@ VAR CONSTANT
 	branchName : STRING[80] := '$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')';
 	uncommittedChanges : STRING[80] := '$(git diff --shortstat)';
 	buildDate  : STRING[80] := '$(date +"%Y-%m-%d %H:%M:%S %z")';
-	buildConfiguration : STRING[80] := '$2';
-	builder : STRING[80] := '$3';
+	buildConfiguration : STRING[80] := '${AS_CONFIGURATION}';
+	builder : STRING[80] := '${AS_USER_NAME}';
 END_VAR
 EOF
 
