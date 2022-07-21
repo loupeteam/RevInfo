@@ -38,9 +38,6 @@ ignored/
 *.set
 !**/Physical/**/*.set
 
-# RevInfo variables
-*RevInfo.var
-
 # TODO: Help explorer
 /HelpExplorer/Output/*
 /HelpExplorer/HelpExplorer-win32-x64/*

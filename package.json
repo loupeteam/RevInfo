@@ -1,6 +1,6 @@
 {
   "name": "@loupeteam/revinfopkg",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "RevInfo automatically creates Git commit data and Automation Studio build information in a variable declaration file which you can use within an Automation Studio project. It makes clear what committed version of code is running and who transferred it (+when!) to ensure you’ll never walk away from a machine with uncommited code, ever again.",
   "scripts": {},
   "keywords": [],
@@ -25,7 +25,10 @@
           "source": "RevInfo",
           "destination": "TC8"
         }
-      ]
+      ],
+      "configuration": {
+        "preBuildStep": "\"$(AS_PROJECT_PATH)\\Logical\\Infrastructure\\RevInfo\\getRevInfo.sh\""
+      }
     }
   }
 }
