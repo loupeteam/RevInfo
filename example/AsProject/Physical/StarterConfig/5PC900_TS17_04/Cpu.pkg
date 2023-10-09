@@ -19,8 +19,9 @@
   </Objects>
   <Configuration ModuleId="5PC900.TS17-04">
     <AutomationRuntime Version="C4.90" />
-    <Build GccVersion="6.3.0" PreBuildStep="" />
+    <Build GccVersion="6.3.0" PreBuildStep="&quot;$(AS_PROJECT_PATH)\..\..\src\Infrastructure\RevInfo\getRevInfo.sh&quot;" />
     <DefaultTargetMemory Tasks="UserROM" />
+    <Transfer AddToUserPart="False" AdditionalUserDir="" AllowDowngrade="True" AllowInitialTransfer="False" AllowPartitioning="False" ExecuteInitExitProgram="True" ForceInitialTransfer="False" IdentificationTypeValue="" IgnoreVersion="True" KeepNonVolatileMemory="False" PreserveVariableValues="False" ProjectConsistent="False" RebootDuringTransfer="True" SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" TargetIdentificationType="Always" TryToBootInRunMode="True" UserFilesIgnoreDifference="True" />
     <Vc FirmwareVersion="V4.72.0" />
   </Configuration>
 </Cpu>
