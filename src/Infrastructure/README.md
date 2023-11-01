@@ -3,5 +3,5 @@ RevInfo automatically creates Git commit data and Automation Studio build inform
 
 **Configuration Pre-Build Step:**
 ```
-"$(AS_PROJECT_PATH)\Logical\Infrastructure\RevInfo\getRevInfo.sh" "$(AS_PROJECT_PATH)\Logical\Infrastructure\RevInfo" "${AS_CONFIGURATION}" "${AS_USER_NAME}"
+"$(AS_PROJECT_PATH)\Logical\Infrastructure\RevInfo\getRevInfo.sh"
 ```
