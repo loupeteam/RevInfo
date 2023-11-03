@@ -1,3 +1,9 @@
+# File: getRevInfo.sh
+# Copyright (c) 2023 Loupe
+# https://loupe.team
+# 
+# This file is part of RevInfo, licensed under the MIT License.
+#
 #!/bin/sh
 # The following line should be put into the pre-build step of any configuration that should run this script
 # "$(AS_PROJECT_PATH)\Logical\Documentation\getRevInfo.sh"
