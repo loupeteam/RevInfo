@@ -5,7 +5,7 @@
   "scripts": {},
   "keywords": [],
   "author": "Loupe",
-  "license": "Loupe Software License Agreement",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/loupeteam/RevInfo"
@@ -14,7 +14,7 @@
     "@loupeteam/logthat": ">=0.5.0"
   },
   "lpm": {
-    "type": "package",
+    "type": "program",
     "logical": {
       "source": "*",
       "destination": "Infrastructure/RevInfo"
