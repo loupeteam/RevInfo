@@ -5,6 +5,6 @@
     <Object Type="File" Description="Global data types">Global.typ</Object>
     <Object Type="File" Description="Global variables">Global.var</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
-    <Object Type="Package" Reference="true">C:\projects\Loupe\RevInfo\src\Infrastructure\Package.pkg</Object>
+    <Object Type="Package" Reference="true">..\..\src\Ar\RevInfo\Package.pkg</Object>
   </Objects>
 </Package>
