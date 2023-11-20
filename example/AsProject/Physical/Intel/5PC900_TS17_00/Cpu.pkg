@@ -20,7 +20,7 @@
   </Objects>
   <Configuration ModuleId="5PC900.TS17-00">
     <AutomationRuntime Version="E4.92" />
-    <Build GccVersion="4.1.2" />
+    <Build GccVersion="6.3.0" PreBuildStep="&quot;$(AS_PROJECT_PATH)\..\..\src\Ar\RevInfo\getRevInfo.sh&quot; “$(AS_PROJECT_PATH)\Logical\RevInfo” “$(AS_CONFIGURATION)” “$(AS_USER_NAME)”" />
     <DefaultTargetMemory Tasks="UserROM" />
     <Vc FirmwareVersion="V4.72.5" />
   </Configuration>
