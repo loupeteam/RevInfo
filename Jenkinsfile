@@ -2,7 +2,7 @@ library "jenkinsLibrary@develop"
 
 buildPublishPipeline(
     slackChannel: "sandbox-github",
-    asProjectRepo: "revinfo",
+    asProjectRepo: "RevInfo",
     asProjectVersion: "feature/oss-release", 
     asProjectPath: "example/AsProject",
     skipLpmInstall: true,
