@@ -21,7 +21,7 @@ VAR CONSTANT
 	uncommittedChanges : STRING[80] := '$(git diff --shortstat)';
 	buildDate  : STRING[80] := '$(date +"%Y-%m-%d %H:%M:%S %z")';
 	buildConfiguration : STRING[80] := '${AS_CONFIGURATION}';
-	builder : STRING[80] := ''$(echo "${AS_USER_NAME}" | sed 's/\$//g')';';
+	builder : STRING[80] := '$(echo "${AS_USER_NAME}" | sed 's/\$//g')';
 END_VAR
 EOF
 
