@@ -1,0 +1,20 @@
+{
+  "name": "asproject",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "lpmConfig": {
+    "deploymentConfigs": [
+      "Intel",
+      "ARM"
+    ],
+    "gitClient": "GitExtensions"
+  },
+  "dependencies": {
+    "@loupeteam/librarybuilderproject": "^1.0.0",
+    "@loupeteam/logthat": "^1.0.0"
+  }
+}

@@ -1,17 +1,21 @@
 {
   "name": "@loupeteam/revinfoprog",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "This is a program package for RevInfo that will automatically create Git commit data and Automation Studio build information in a variable declaration file which you can use within an Automation Studio project. It makes clear what committed version of code is running and who transferred it (+when!) to ensure you’ll never walk away from a machine with uncommited code, ever again.",
   "scripts": {},
   "keywords": [],
   "author": "Loupe",
   "license": "MIT",
+  "homepage": "https://loupeteam.github.io/LoupeDocs/programs/revinfo.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/loupeteam/RevInfo.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
-    "@loupeteam/logthat": ">=0.5.0"
+    "@loupeteam/logthat": ">=1.0.0"
   },
   "lpm": {
     "type": "program",
