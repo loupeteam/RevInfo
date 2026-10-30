@@ -11,10 +11,15 @@
 
 cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 
-# Make a value safe inside an IEC 61131-3 string literal: drop control characters,
-# cap at the 80-char STRING size, then escape $ as $$ and ' as $'
+# Make a value safe inside an IEC 61131-3 string literal: replace each non-ASCII
+# character with ?, drop control characters, cap at the 80-char STRING size,
+# then escape $ as $$ and ' as $' (escapes count as one character in the PLC)
 st() {
-	printf '%s' "$1" | tr -d '\000-\037\177' | cut -c1-80 | sed -e 's/\$/$$/g' -e "s/'/\$'/g"
+	printf '%s' "$1" \
+		| LC_ALL=C sed -e 's/[\xC0-\xFF][\x80-\xBF]*/?/g' \
+		| LC_ALL=C tr -cd '\040-\176' \
+		| cut -c1-80 \
+		| sed -e 's/\$/$$/g' -e "s/'/\$'/g"
 }
 
 cat > RevInfo.var << EOF
