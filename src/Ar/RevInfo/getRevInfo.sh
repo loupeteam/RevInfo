@@ -11,17 +11,28 @@
 
 cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"
 
+# Make a value safe inside an IEC 61131-3 string literal: replace each non-ASCII
+# character with ?, drop control characters, cap at the 80-char STRING size,
+# then escape $ as $$ and ' as $' (escapes count as one character in the PLC)
+st() {
+	printf '%s' "$1" \
+		| LC_ALL=C sed -e 's/[\xC0-\xFF][\x80-\xBF]*/?/g' \
+		| LC_ALL=C tr -cd '\040-\176' \
+		| cut -c1-80 \
+		| sed -e 's/\$/$$/g' -e "s/'/\$'/g"
+}
+
 cat > RevInfo.var << EOF
 (* RevInfo.var 2.2.0 *)
 VAR CONSTANT
-	revision : STRING[80] := '$(git describe --always --tags)';
-	revisionDate : STRING[80] := '$(git show -s --date=default --pretty=format:%ci)';
-	revisionAuthor : STRING[80] := '$(git show -s --pretty=format:%an)';
-	branchName : STRING[80] := '$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')';
-	uncommittedChanges : STRING[80] := '$(git diff --shortstat)';
-	buildDate  : STRING[80] := '$(date +"%Y-%m-%d %H:%M:%S %z")';
-	buildConfiguration : STRING[80] := '${AS_CONFIGURATION}';
-	builder : STRING[80] := '${AS_USER_NAME}';
+	revision : STRING[80] := '$(st "$(git describe --always --tags)")';
+	revisionDate : STRING[80] := '$(st "$(git show -s --date=default --pretty=format:%ci)")';
+	revisionAuthor : STRING[80] := '$(st "$(git show -s --pretty=format:%an)")';
+	branchName : STRING[80] := '$(st "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')")';
+	uncommittedChanges : STRING[80] := '$(st "$(git diff --shortstat)")';
+	buildDate  : STRING[80] := '$(st "$(date +"%Y-%m-%d %H:%M:%S %z")")';
+	buildConfiguration : STRING[80] := '$(st "${AS_CONFIGURATION}")';
+	builder : STRING[80] := '$(st "${AS_USER_NAME}")';
 END_VAR
 EOF
 
